@@ -50,7 +50,7 @@ class Content3 extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(15.0)),
                   child: Image(
                     width: 320,
-                    image: AssetImage('assets/images/content_3.jpg'),
+                    image: AssetImage('assets/images/home/content_3.jpg'),
                   ),
                 ),
               ],

@@ -55,7 +55,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image(
-                image: AssetImage('assets/images/music_library_logo.png'),
+                image: AssetImage('assets/images/home/music_library_logo.png'),
                 width: 150,
               ),
             ],
@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
               Stack(
                 children: <Widget>[
                   Image(
-                    image: AssetImage('assets/images/header_home.jpg'),
+                    image: AssetImage('assets/images/home/header_home.jpg'),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +110,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
               SizedBox(
-                height: 60,
+                height: 50,
               ),
               CategoryIcon(),
               SizedBox(
