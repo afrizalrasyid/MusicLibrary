@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music_library/view/component/bottom_navigation.dart';
-import 'package:music_library/view/guitar/guitar_view_mode.dart';
-import 'package:music_library/view/welcome.dart';
+import 'package:music_library/viewmodel/guitar_view_model.dart';
+import 'package:music_library/view/welcome_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {

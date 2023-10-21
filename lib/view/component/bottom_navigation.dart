@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:music_library/view/category.dart';
-import 'package:music_library/view/customer_service.dart';
-import 'package:music_library/view/feedback.dart';
-import 'package:music_library/view/home.dart';
+import 'package:music_library/view/category_screen.dart';
+import 'package:music_library/view/customer_service_screen.dart';
+import 'package:music_library/view/feedback_screen.dart';
+import 'package:music_library/view/home_screen.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
