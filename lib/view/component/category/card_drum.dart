@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_library/view/drum_screen.dart';
 
 class CardDrum extends StatelessWidget {
   const CardDrum({super.key});
@@ -14,7 +15,11 @@ class CardDrum extends StatelessWidget {
         child: InkWell(
           splashColor: Colors.grey.shade800,
           onTap: () {
-            debugPrint('Card tapped.');
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => const DrumScreen(),
+              ),
+            );
           },
           child: const SizedBox(
             height: 250,

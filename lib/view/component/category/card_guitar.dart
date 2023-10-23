@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_library/view/guitar_screen.dart';
 
 class CardGuitar extends StatelessWidget {
   const CardGuitar({super.key});
@@ -14,7 +15,11 @@ class CardGuitar extends StatelessWidget {
         child: InkWell(
           splashColor: Colors.grey.shade800,
           onTap: () {
-            debugPrint('Card tapped.');
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => const GuitarScreen(),
+              ),
+            );
           },
           child: const SizedBox(
             height: 250,
