@@ -14,7 +14,7 @@ class _GuitarScreenState extends State<GuitarScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Provider.of<ProductViewModel>(context, listen: false).getGuitarsOnly();
     });
   }

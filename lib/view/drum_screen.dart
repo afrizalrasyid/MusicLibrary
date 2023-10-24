@@ -14,7 +14,7 @@ class _DrumScreenState extends State<DrumScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Provider.of<ProductViewModel>(context, listen: false).getDrumsOnly();
     });
   }

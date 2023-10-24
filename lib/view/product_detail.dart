@@ -31,13 +31,13 @@ class _ProductDetailState extends State<ProductDetail> {
 
   @override
   Widget build(BuildContext context) {
-    if (_product == null) {
-      return CircularProgressIndicator();
+    if (_product == false) {
+      return const CircularProgressIndicator();
     } else {
       // Tampilkan data produk di sini
       return Scaffold(
         appBar: AppBar(
-          title: Text('Detail Produk'),
+          title: const Text('Detail Produk'),
         ),
         body: Center(
           child: Column(

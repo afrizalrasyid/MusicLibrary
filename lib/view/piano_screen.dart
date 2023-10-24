@@ -14,7 +14,7 @@ class _PianoScreenState extends State<PianoScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Provider.of<ProductViewModel>(context, listen: false).getPianosOnly();
     });
   }
