@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music_library/viewmodel/guitar_view_model.dart';
+import 'package:music_library/view/product_detail.dart';
+import 'package:music_library/viewmodel/product_view_model.dart';
 import 'package:provider/provider.dart';
 
 class GuitarScreen extends StatefulWidget {
@@ -14,13 +15,13 @@ class _GuitarScreenState extends State<GuitarScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
-      Provider.of<GuitarViewModel>(context, listen: false).getAllGuitars();
+      Provider.of<ProductViewModel>(context, listen: false).getGuitarsOnly();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final modelView = Provider.of<GuitarViewModel>(context);
+    final modelView = Provider.of<ProductViewModel>(context);
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 233, 233, 233),
       appBar: AppBar(
@@ -32,19 +33,27 @@ class _GuitarScreenState extends State<GuitarScreen> {
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20),
-          itemCount: modelView.guitars.length,
+          itemCount: modelView.products.length,
           itemBuilder: (context, index) {
-            final guitar = modelView.guitars[index];
+            final guitar = modelView.products[index];
             return Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
               ),
-              elevation: 5,
+              elevation: 10,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ProductDetail(
+                        productId: guitar.id,
+                      ),
+                    ),
+                  );
+                },
                 child: Column(
                   children: [
-                    Image.network(width: 97, guitar.image),
+                    Image.network(width: 97.5, guitar.image),
                     ListTile(
                       title: Text(
                           style: const TextStyle(fontSize: 15), guitar.name),

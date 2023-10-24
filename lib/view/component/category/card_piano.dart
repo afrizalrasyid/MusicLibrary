@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_library/view/piano_screen.dart';
 
 class CardPiano extends StatelessWidget {
   const CardPiano({super.key});
@@ -14,7 +15,11 @@ class CardPiano extends StatelessWidget {
         child: InkWell(
           splashColor: Colors.grey.shade800,
           onTap: () {
-            debugPrint('Card tapped.');
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => const PianoScreen(),
+              ),
+            );
           },
           child: const SizedBox(
             height: 250,

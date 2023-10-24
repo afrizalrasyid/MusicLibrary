@@ -3,19 +3,19 @@ import 'package:music_library/view/product_detail.dart';
 import 'package:music_library/viewmodel/product_view_model.dart';
 import 'package:provider/provider.dart';
 
-class DrumScreen extends StatefulWidget {
-  const DrumScreen({super.key});
+class PianoScreen extends StatefulWidget {
+  const PianoScreen({super.key});
 
   @override
-  State<DrumScreen> createState() => _DrumScreenState();
+  State<PianoScreen> createState() => _PianoScreenState();
 }
 
-class _DrumScreenState extends State<DrumScreen> {
+class _PianoScreenState extends State<PianoScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
-      Provider.of<ProductViewModel>(context, listen: false).getDrumsOnly();
+      Provider.of<ProductViewModel>(context, listen: false).getPianosOnly();
     });
   }
 
@@ -26,7 +26,7 @@ class _DrumScreenState extends State<DrumScreen> {
       backgroundColor: const Color.fromARGB(255, 233, 233, 233),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 4, 13, 18),
-        title: const Text('Drums'),
+        title: const Text('Pianos'),
       ),
       body: Container(
         margin: const EdgeInsets.all(18),
@@ -35,7 +35,7 @@ class _DrumScreenState extends State<DrumScreen> {
               crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20),
           itemCount: modelView.products.length,
           itemBuilder: (context, index) {
-            final drum = modelView.products[index];
+            final piano = modelView.products[index];
             return Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
@@ -46,18 +46,18 @@ class _DrumScreenState extends State<DrumScreen> {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => ProductDetail(
-                        productId: drum.id,
+                        productId: piano.id,
                       ),
                     ),
                   );
                 },
                 child: Column(
                   children: [
-                    Image.network(width: 97, drum.image),
+                    Image.network(width: 97, piano.image),
                     ListTile(
-                      title:
-                          Text(style: const TextStyle(fontSize: 15), drum.name),
-                      subtitle: Text(drum.seri),
+                      title: Text(
+                          style: const TextStyle(fontSize: 15), piano.name),
+                      subtitle: Text(piano.seri),
                     ),
                   ],
                 ),
