@@ -49,7 +49,14 @@ class Welcome extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(height: 100),
+              const SizedBox(height: 50),
+              const Divider(
+                color: Colors.white,
+                height: 10,
+                thickness: 4,
+                indent: 180,
+              ),
+              const SizedBox(height: 50),
               ElevatedButton(
                 style: ButtonStyle(
                   padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
