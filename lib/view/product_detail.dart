@@ -185,7 +185,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: [WriteReview()],
+                          children: [WriteReview(productId: widget.productId)],
                         )
                       ],
                     ),

@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:music_library/model/api/user_api.dart';
 import 'package:music_library/model/user_model.dart';
@@ -26,11 +27,22 @@ class UserViewModel with ChangeNotifier {
   }
 
   createReview(String productId) async {
-    final getData = await UserAPI.postUser(productId);
-    final createReview = getData.where((user) => user.id == productId).toList();
+    final postData = await UserAPI.postUser(productId);
+    final createReview = postData.toList();
     _users = createReview;
     notifyListeners();
 
     return createReview;
+  }
+
+  Future<void> editReview(String reviewId, String newMessage) async {
+    try {
+      final updatedReview = users.firstWhere((user) => user.id == reviewId);
+
+      // Panggil notifyListeners() untuk memberi tahu widget bahwa data telah berubah
+      notifyListeners();
+    } catch (error) {
+      print('Error editing review: $error');
+    }
   }
 }

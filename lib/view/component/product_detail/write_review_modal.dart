@@ -1,28 +1,18 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:music_library/viewmodel/user_view_model.dart';
-import 'package:provider/provider.dart';
 
 class WriteReview extends StatefulWidget {
-  // final String productId;
+  final String productId;
 
-  // WriteReview({required this.productId});
+  WriteReview({required this.productId});
 
   @override
   State<WriteReview> createState() => _WriteReviewState();
 }
 
 class _WriteReviewState extends State<WriteReview> {
-  @override
-  // void didChangeDependencies() {
-  //   super.didChangeDependencies();
-  //   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-  //     Provider.of<UserViewModel>(context, listen: false)
-  //         .createReview(widget.productId);
-  //   });
-  // }
-
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController reviewController = TextEditingController();
+  final TextEditingController messageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +70,7 @@ class _WriteReviewState extends State<WriteReview> {
                 height: 20,
               ),
               TextField(
-                controller: reviewController,
+                controller: messageController,
                 maxLength: 250,
                 maxLines: 5,
                 decoration: InputDecoration(
@@ -119,7 +109,12 @@ class _WriteReviewState extends State<WriteReview> {
             ),
             TextButton(
               onPressed: () {
-                addReview();
+                addReview(widget.productId, nameController.text,
+                    messageController.text);
+                Navigator.of(context).pop();
+
+                nameController.clear();
+                messageController.clear();
               },
               child: const Text(
                 "Submit",
@@ -136,6 +131,23 @@ class _WriteReviewState extends State<WriteReview> {
   }
 }
 
-void addReview() async {
-  // Response response = await createReview
+void addReview(String productId, String name, String message) async {
+  try {
+    Dio dio = Dio();
+    Response response = await dio.post(
+        'https://65337ae2d80bd20280f68634.mockapi.io/product/$productId/users',
+        data: {
+          'productId': productId,
+          'name': name,
+          'message': message,
+        });
+
+    if (response.statusCode == 200) {
+      print('Review added successfully');
+    } else {
+      print('Failed to add review');
+    }
+  } catch (error) {
+    print('Error: $error');
+  }
 }
