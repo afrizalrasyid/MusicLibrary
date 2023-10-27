@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_library/model/api/user_api.dart';
 import 'package:music_library/model/product_model.dart';
+import 'package:music_library/view/component/product_detail/edit_review_modal.dart';
 import 'package:music_library/view/component/product_detail/write_review_modal.dart';
 import 'package:music_library/viewmodel/product_view_model.dart';
 import 'package:music_library/viewmodel/user_view_model.dart';
@@ -169,12 +170,18 @@ class _ProductDetailState extends State<ProductDetail> {
                                     trailing: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
+                                        EditReview(
+                                            productId: widget.productId,
+                                            id: user.id,
+                                            name: user.name,
+                                            message: user.message),
                                         IconButton(
-                                            onPressed: () {
-                                              UserViewModel().deleteReview(
-                                                  user.id, widget.productId);
-                                            },
-                                            icon: const Icon(Icons.delete))
+                                          onPressed: () {
+                                            UserViewModel().deleteReview(
+                                                user.id, widget.productId);
+                                          },
+                                          icon: const Icon(Icons.delete),
+                                        ),
                                       ],
                                     ),
                                   );

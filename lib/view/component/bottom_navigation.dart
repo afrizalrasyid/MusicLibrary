@@ -51,7 +51,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         const Home(),
         const Category(),
         const FeedBack(),
-        const CustomerService()
+        CustomerService()
       ][currentPageIndex],
     );
   }
