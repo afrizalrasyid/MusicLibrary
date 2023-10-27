@@ -18,12 +18,10 @@ class UserViewModel with ChangeNotifier {
 
   getReviewById(String productId) async {
     final allUsers = await UserAPI.getUser(productId);
-    final reviewProduct =
-        allUsers.where((user) => user.id == productId).toList();
-    _users = reviewProduct;
+    _users = allUsers;
     notifyListeners();
 
-    return reviewProduct;
+    return allUsers;
   }
 
   createReview(String productId) async {
