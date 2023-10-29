@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:music_library/view/component/category/card_guitar.dart';
+import 'package:music_library/view/drum_screen.dart';
+import 'package:music_library/view/guitar_screen.dart';
+import 'package:music_library/view/piano_screen.dart';
 
 class CategoryIcon extends StatelessWidget {
   const CategoryIcon({super.key});
@@ -51,7 +55,13 @@ class CategoryIcon extends StatelessWidget {
                               iconSize: 45,
                               icon: const FaIcon(FontAwesomeIcons.guitar),
                               color: Colors.white,
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (_) => const GuitarScreen(),
+                                  ),
+                                );
+                              },
                             ),
                           ),
                           const Text(
@@ -80,7 +90,13 @@ class CategoryIcon extends StatelessWidget {
                               iconSize: 45,
                               icon: const FaIcon(FontAwesomeIcons.music),
                               color: Colors.white,
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (_) => const PianoScreen(),
+                                  ),
+                                );
+                              },
                             ),
                           ),
                           const Text(
@@ -109,7 +125,13 @@ class CategoryIcon extends StatelessWidget {
                               iconSize: 45,
                               icon: const FaIcon(FontAwesomeIcons.drum),
                               color: Colors.white,
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (_) => const GuitarScreen(),
+                                  ),
+                                );
+                              },
                             ),
                           ),
                           const Text(

@@ -29,38 +29,4 @@ class UserAPI {
         .toList();
     return users;
   }
-
-  static Future<List<User>> postUser(String productId) async {
-    final response = await Dio().post(
-        'https://65337ae2d80bd20280f68634.mockapi.io/product/$productId/users');
-
-    List<User> users = (response.data as List)
-        .map(
-          (e) => User(
-            id: e['id'],
-            productId: e['productId'],
-            name: e['name'],
-            message: e['message'],
-          ),
-        )
-        .toList();
-    return users;
-  }
-
-  static Future<List<User>> putUser(String productId, String id) async {
-    final response = await Dio().put(
-        'https://65337ae2d80bd20280f68634.mockapi.io/product/$productId/users/$id');
-
-    List<User> users = (response.data as List)
-        .map(
-          (e) => User(
-            id: e['id'],
-            productId: e['productId'],
-            name: e['name'],
-            message: e['message'],
-          ),
-        )
-        .toList();
-    return users;
-  }
 }
