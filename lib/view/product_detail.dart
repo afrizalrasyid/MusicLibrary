@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:music_library/model/api/user_api.dart';
 import 'package:music_library/model/product_model.dart';
 import 'package:music_library/view/component/product_detail/edit_review_modal.dart';
 import 'package:music_library/view/component/product_detail/write_review_modal.dart';
@@ -25,8 +24,6 @@ class _ProductDetailState extends State<ProductDetail> {
       price: 'price',
       description: 'description',
       image: 'image');
-  // late User _user =
-  //     User(id: 'id', productId: 'productId', name: 'name', message: 'message');
 
   @override
   void didChangeDependencies() {
@@ -41,16 +38,7 @@ class _ProductDetailState extends State<ProductDetail> {
   void initState() {
     super.initState();
     getProductData();
-    // getUserReview();
   }
-
-  // void getUserReview() async {
-  //   final user = await Provider.of<UserViewModel>(context, listen: false)
-  //       .getReviewById(widget.productId);
-  //   setState(() {
-  //     _user = user;
-  //   });
-  // }
 
   void getProductData() async {
     final product = await Provider.of<ProductViewModel>(context, listen: false)
