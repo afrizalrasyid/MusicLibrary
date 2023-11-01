@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:music_library/view/component/home/carousel_slider_home.dart';
-import 'package:music_library/view/component/home/category_icon_home.dart';
 import 'package:music_library/view/component/home/content_1_home.dart';
 import 'package:music_library/view/component/home/content_2_home.dart';
 import 'package:music_library/view/component/home/content_3_home.dart';
@@ -112,7 +111,6 @@ class _HomeState extends State<Home> {
               SizedBox(
                 height: 50,
               ),
-              CategoryIcon(),
               SizedBox(
                 height: 60,
               ),

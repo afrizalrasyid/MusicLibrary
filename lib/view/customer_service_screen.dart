@@ -125,7 +125,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(10),
+                            Radius.circular(15),
                           ),
                         ),
                         hintText: 'Type a message',
