@@ -28,7 +28,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   TextEditingController _textController = TextEditingController();
 
   Future<void> _submitForm() async {
-    String key = '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';
+    String key = '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';
     if (_formKey.currentState!.validate()) {
       final apiKey = key;
       const apiUrl = 'https://api.openai.com/v1/completions';
@@ -86,7 +86,6 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                 itemCount: messages.length,
                 itemBuilder: (context, index) {
                   final isUserMessage = index % 2 == 0;
-                  // Pesan user memiliki indeks genap, pesan chatbot memiliki indeks ganjil
                   return ListTile(
                     title: Align(
                       alignment: isUserMessage

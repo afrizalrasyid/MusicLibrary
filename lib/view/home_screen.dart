@@ -109,9 +109,6 @@ class _HomeState extends State<Home> {
                 ],
               ),
               SizedBox(
-                height: 50,
-              ),
-              SizedBox(
                 height: 60,
               ),
               CarouselImage(),
